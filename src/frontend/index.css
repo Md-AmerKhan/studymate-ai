@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Outfit - clean, modern, student-friendly */
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Plus Jakarta Sans - elegant body text */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* StudyMate AI — Soft Sky + Lavender accent palette */
+    /* Background: warm white with slight blue tint */
+    --background: 0.978 0.008 240;
+    --foreground: 0.22 0.035 260;
+
+    /* Cards: pure soft white */
+    --card: 0.995 0.002 240;
+    --card-foreground: 0.22 0.035 260;
+
+    /* Popover */
+    --popover: 0.995 0.002 240;
+    --popover-foreground: 0.22 0.035 260;
+
+    /* Primary: sky blue */
+    --primary: 0.56 0.18 245;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: soft lavender tint */
+    --secondary: 0.935 0.035 260;
+    --secondary-foreground: 0.35 0.08 265;
+
+    /* Muted: light gray-blue */
+    --muted: 0.945 0.018 250;
+    --muted-foreground: 0.52 0.04 255;
+
+    /* Accent: mint-teal */
+    --accent: 0.93 0.04 185;
+    --accent-foreground: 0.25 0.07 195;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders */
+    --border: 0.9 0.025 250;
+    --input: 0.9 0.025 250;
+    --ring: 0.56 0.18 245;
+
+    /* Charts */
+    --chart-1: 0.56 0.18 245;
+    --chart-2: 0.65 0.16 185;
+    --chart-3: 0.72 0.12 140;
+    --chart-4: 0.75 0.14 50;
+    --chart-5: 0.68 0.17 20;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.012 245;
+    --sidebar-foreground: 0.22 0.035 260;
+    --sidebar-primary: 0.56 0.18 245;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.035 255;
+    --sidebar-accent-foreground: 0.35 0.08 265;
+    --sidebar-border: 0.88 0.03 250;
+    --sidebar-ring: 0.56 0.18 245;
+
+    /* Custom StudyMate tokens */
+    --study-sky: 0.56 0.18 245;
+    --study-sky-light: 0.92 0.06 245;
+    --study-lavender: 0.72 0.14 290;
+    --study-lavender-light: 0.93 0.04 285;
+    --study-mint: 0.72 0.12 170;
+    --study-mint-light: 0.93 0.04 172;
+    --study-rose: 0.72 0.14 10;
+    --study-rose-light: 0.94 0.04 12;
+    --study-amber: 0.76 0.14 80;
+    --study-amber-light: 0.95 0.04 82;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Outfit", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Outfit", system-ui, sans-serif;
+  }
+
+  .font-body {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  /* Study subject color chips */
+  .chip-sky {
+    background-color: oklch(var(--study-sky-light));
+    color: oklch(var(--study-sky));
+    border: 1px solid oklch(var(--study-sky) / 0.25);
+  }
+  .chip-lavender {
+    background-color: oklch(var(--study-lavender-light));
+    color: oklch(var(--study-lavender));
+    border: 1px solid oklch(var(--study-lavender) / 0.25);
+  }
+  .chip-mint {
+    background-color: oklch(var(--study-mint-light));
+    color: oklch(var(--study-mint));
+    border: 1px solid oklch(var(--study-mint) / 0.25);
+  }
+  .chip-rose {
+    background-color: oklch(var(--study-rose-light));
+    color: oklch(var(--study-rose));
+    border: 1px solid oklch(var(--study-rose) / 0.25);
+  }
+  .chip-amber {
+    background-color: oklch(var(--study-amber-light));
+    color: oklch(var(--study-amber));
+    border: 1px solid oklch(var(--study-amber) / 0.25);
+  }
+
+  /* Gradient mesh background */
+  .bg-study-mesh {
+    background-color: oklch(var(--background));
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% 10%, oklch(var(--study-sky) / 0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, oklch(var(--study-lavender) / 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 50% 50%, oklch(var(--study-mint) / 0.04) 0%, transparent 70%);
+  }
+
+  /* Typing dots animation */
+  .typing-dot {
+    animation: typing-bounce 1.4s infinite ease-in-out;
+  }
+  .typing-dot:nth-child(1) { animation-delay: 0s; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes typing-bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+
+  /* Smooth slide up animation for messages */
+  .msg-enter {
+    animation: msg-slide-up 0.25s ease-out forwards;
+  }
+  @keyframes msg-slide-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Nav active indicator */
+  .nav-active {
+    color: oklch(var(--study-sky));
+  }
+
+  /* Card hover lift */
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px oklch(var(--study-sky) / 0.12), 0 2px 6px oklch(0 0 0 / 0.06);
+  }
+
+  /* Focus visible ring */
+  :focus-visible {
+    outline: 2px solid oklch(var(--ring));
+    outline-offset: 2px;
+  }
+}
