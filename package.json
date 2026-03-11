@@ -2,12 +2,12 @@
   "name": "@caffeine/template-app",
   "type": "module",
   "engines": {
-    "node": ">=16.0.0",
-    "pnpm": ">=7.0.0",
-    "npm": "please use pnpm"
+    "node": "20.x",
+    "pnpm": ">=7.0.0"
   },
   "scripts": {
     "build": "pnpm -r --if-present run build",
+    "start": "pnpm --filter @caffeine/template-frontend run preview -- --host 0.0.0.0 --port $PORT",
     "typecheck": "pnpm -r --if-present run typecheck",
     "check": "pnpm -r --if-present run check",
     "fix": "pnpm -r --if-present run fix"
